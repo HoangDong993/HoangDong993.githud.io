@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 10, 2020 6:49:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Mobile.Untity.ProductDetail" table="ProductDetail" schema="dbo" catalog="MobileSelling" optimistic-lock="version">
+        <id name="productDetailId" type="int">
+            <column name="ProductDetailId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="color" class="Mobile.Untity.Color" fetch="select">
+            <column name="ColorId" />
+        </many-to-one>
+        <many-to-one name="product" class="Mobile.Untity.Product" fetch="select">
+            <column name="ProductId" />
+        </many-to-one>
+        <many-to-one name="rom" class="Mobile.Untity.Rom" fetch="select">
+            <column name="SizeId" />
+        </many-to-one>
+        <property name="imagesLink" type="serializable">
+            <column name="ImagesLink" />
+        </property>
+        <property name="created" type="binary">
+            <column name="Created" not-null="true" />
+        </property>
+        <property name="discount" type="java.lang.Integer">
+            <column name="Discount" />
+        </property>
+        <property name="viewPro" type="serializable">
+            <column name="ViewPro" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="Price" precision="53" scale="0" />
+        </property>
+        <property name="productStatus" type="java.lang.Boolean">
+            <column name="ProductStatus" />
+        </property>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="Quantity" />
+        </property>
+        <set name="orderDetails" table="OrderDetail" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="ProductDetailId" />
+            </key>
+            <one-to-many class="Mobile.Untity.OrderDetail" />
+        </set>
+        <set name="imageses" table="Images" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="ProductDetailId" />
+            </key>
+            <one-to-many class="Mobile.Untity.Images" />
+        </set>
+    </class>
+</hibernate-mapping>

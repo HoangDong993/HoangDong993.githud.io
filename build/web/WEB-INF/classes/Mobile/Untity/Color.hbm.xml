@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 10, 2020 6:49:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Mobile.Untity.Color" table="Color" schema="dbo" catalog="MobileSelling" optimistic-lock="version">
+        <id name="colorId" type="int">
+            <column name="ColorId" />
+            <generator class="identity" />
+        </id>
+        <property name="colorName" type="string">
+            <column name="ColorName" />
+        </property>
+        <property name="colorStatus" type="java.lang.Boolean">
+            <column name="ColorStatus" />
+        </property>
+        <set name="productDetails" table="ProductDetail" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="ColorId" />
+            </key>
+            <one-to-many class="Mobile.Untity.ProductDetail" />
+        </set>
+    </class>
+</hibernate-mapping>

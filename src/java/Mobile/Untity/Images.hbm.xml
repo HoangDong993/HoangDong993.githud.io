@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 10, 2020 6:49:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Mobile.Untity.Images" table="Images" schema="dbo" catalog="MobileSelling" optimistic-lock="version">
+        <id name="imagesId" type="int">
+            <column name="ImagesId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="productDetail" class="Mobile.Untity.ProductDetail" fetch="select">
+            <column name="ProductDetailId" />
+        </many-to-one>
+        <property name="imagesLink" type="string">
+            <column name="ImagesLink" />
+        </property>
+        <property name="imagesStatus" type="java.lang.Boolean">
+            <column name="ImagesStatus" />
+        </property>
+        <set name="banners" table="Banner" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="ImagesLink" />
+            </key>
+            <one-to-many class="Mobile.Untity.Banner" />
+        </set>
+    </class>
+</hibernate-mapping>

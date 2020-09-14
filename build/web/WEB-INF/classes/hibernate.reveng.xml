@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="MobileSelling" match-schema="dbo"/>
+  <table-filter match-name="Color"/>
+  <table-filter match-name="Category"/>
+  <table-filter match-name="ProductDetail"/>
+  <table-filter match-name="Rom"/>
+  <table-filter match-name="OrderPro"/>
+  <table-filter match-name="Product"/>
+  <table-filter match-name="OrderDetail"/>
+  <table-filter match-name="Images"/>
+  <table-filter match-name="ShipType"/>
+  <table-filter match-name="Banner"/>
+  <table-filter match-name="Users"/>
+</hibernate-reverse-engineering>

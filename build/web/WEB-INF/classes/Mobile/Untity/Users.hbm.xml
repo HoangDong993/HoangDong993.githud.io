@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 10, 2020 6:49:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Mobile.Untity.Users" table="Users" schema="dbo" catalog="MobileSelling" optimistic-lock="version">
+        <id name="userId" type="int">
+            <column name="UserId" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="UserName" />
+        </property>
+        <property name="passUser" type="string">
+            <column name="PassUser" />
+        </property>
+        <property name="sexAdmin" type="java.lang.Boolean">
+            <column name="SexAdmin" />
+        </property>
+        <property name="mail" type="string">
+            <column name="Mail" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" />
+        </property>
+        <property name="addresss" type="string">
+            <column name="Addresss" />
+        </property>
+        <property name="userStatus" type="java.lang.Boolean">
+            <column name="UserStatus" />
+        </property>
+        <set name="orderPros" table="OrderPro" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="UserId" />
+            </key>
+            <one-to-many class="Mobile.Untity.OrderPro" />
+        </set>
+    </class>
+</hibernate-mapping>

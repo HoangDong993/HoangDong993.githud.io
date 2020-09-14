@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 10, 2020 6:49:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Mobile.Untity.OrderDetail" table="OrderDetail" schema="dbo" lazy="false" catalog="MobileSelling" optimistic-lock="version">
+        <id name="orderDetailId" type="string">
+            <column name="OrderDetailID" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="orderPro" class="Mobile.Untity.OrderPro" fetch="select">
+            <column name="OrderId" />
+        </many-to-one>
+        <many-to-one name="productDetail" class="Mobile.Untity.ProductDetail" fetch="select">
+            <column name="ProductDetailId" />
+        </many-to-one>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="Quantity" />
+        </property>
+        <property name="amount" type="java.lang.Integer">
+            <column name="Amount" />
+        </property>
+        <property name="detailStatus" type="java.lang.Boolean">
+            <column name="DetailStatus" />
+        </property>
+    </class>
+</hibernate-mapping>

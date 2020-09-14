@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=MobileSelling</property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.connection.password">20049393</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="Mobile/Untity/Product.hbm.xml"/>
+    <mapping resource="Mobile/Untity/ProductDetail.hbm.xml"/>
+    <mapping resource="Mobile/Untity/Banner.hbm.xml"/>
+    <mapping resource="Mobile/Untity/Users.hbm.xml"/>
+    <mapping resource="Mobile/Untity/Category.hbm.xml"/>
+    <mapping resource="Mobile/Untity/OrderPro.hbm.xml"/>
+    <mapping resource="Mobile/Untity/Images.hbm.xml"/>
+    <mapping resource="Mobile/Untity/OrderDetail.hbm.xml"/>
+    <mapping resource="Mobile/Untity/Color.hbm.xml"/>
+    <mapping resource="Mobile/Untity/ShipType.hbm.xml"/>
+    <mapping resource="Mobile/Untity/Rom.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 10, 2020 6:49:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Mobile.Untity.Category" table="Category" schema="dbo" catalog="MobileSelling" optimistic-lock="version">
+        <id name="categoryId" type="int">
+            <column name="CategoryId" />
+            <generator class="identity" />
+        </id>
+        <property name="categoryName" type="string">
+            <column name="CategoryName" />
+        </property>
+        <property name="priotityCategory" type="java.lang.Integer">
+            <column name="PriotityCategory" />
+        </property>
+        <property name="descriptions" type="string">
+            <column name="Descriptions" />
+        </property>
+        <property name="parentId" type="string">
+            <column name="ParentId" />
+        </property>
+        <property name="catStatus" type="java.lang.Boolean">
+            <column name="CatStatus" />
+        </property>
+        <set name="products" table="Product" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="CategoryId" />
+            </key>
+            <one-to-many class="Mobile.Untity.Product" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 10, 2020 6:49:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Mobile.Untity.OrderPro" table="OrderPro" schema="dbo" catalog="MobileSelling" optimistic-lock="version">
+        <id name="orderId" type="int">
+            <column name="OrderId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="shipType" class="Mobile.Untity.ShipType" fetch="select">
+            <column name="ShipId" />
+        </many-to-one>
+        <many-to-one name="users" class="Mobile.Untity.Users" fetch="select">
+            <column name="UserId" />
+        </many-to-one>
+        <property name="created" type="java.util.Calendar">
+            <column name="Created" not-null="true" />
+        </property>
+        <property name="totalAmount" type="java.lang.Integer">
+            <column name="TotalAmount" />
+        </property>
+        <property name="orderDetail" type="string">
+            <column name="OrderDetail" />
+        </property>
+        <property name="orderStatus" type="java.lang.Boolean">
+            <column name="OrderStatus" />
+        </property>
+        <set name="orderDetails" table="OrderDetail" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="OrderId" />
+            </key>
+            <one-to-many class="Mobile.Untity.OrderDetail" />
+        </set>
+    </class>
+</hibernate-mapping>
